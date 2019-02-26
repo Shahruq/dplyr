@@ -21,3 +21,22 @@ View(test)
 # remember in R equal to is ==
 
 
+#filtering easily works with other techniques like or, and etc. example is below:
+
+#example for not displaying flights which are delayed by 120 mins - both arrival and departure
+(a<- filter(flights, !(arr_delay > 120 | dep_delay > 120)))
+#or
+(b<- filter(flights, arr_delay <= 120, dep_delay <=120))
+
+#arrange()
+
+#arrange can be used to provide ascending and descending 
+#example
+
+df <- tibble(x = c(5,2,NA))
+arrange(df, x) #this puts the ascending order which is by default, if you want to use the descending order then you can simply use desc()
+
+# select() operator - used to select variables
+
+select(flights, year:day) #
+  
