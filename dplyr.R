@@ -36,5 +36,13 @@ View(test)
 df <- tibble(x = c(5,2,NA))
 arrange(df, x) #this puts the ascending order which is by default, if you want to use the descending order then you can simply use desc()
 
+# select() operator - used to select variables
 
+select(flights, year:day) #this performs selection of variables from year to day 
+
+#to deselect few variables in the dataset, we can use the following
+
+select(flights, -(year:day)) #this selects all the variables except from year to day
+
+#to rename a variable in the dataset, simply use the following:
   
