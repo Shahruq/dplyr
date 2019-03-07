@@ -38,5 +38,12 @@ arrange(df, x) #this puts the ascending order which is by default, if you want t
 
 # select() operator - used to select variables
 
-select(flights, year:day) #
+select(flights, year:day) #this performs selection of variables from year to day 
+
+#to deselect few variables in the dataset, we can use the following
+
+select(flights, -(year:day)) #this selects all the variables except from year to day
+
+#to rename a variable in the dataset, simply use the following:
+rename(flights, origin = origin1)
   
