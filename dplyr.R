@@ -46,3 +46,8 @@ select(flights, -(year:day)) #this selects all the variables except from year to
 
 #to rename a variable in the dataset, simply use the following:
   
+
+# select and mutate stuff
+
+a <- select(flights, year:day, carrier, flight, ends_with("dest")) 
+b <- mutate(a, cool = carrier, yo = month+day) #mutate is to add new variables to the dataset using information from the dataset itself.
