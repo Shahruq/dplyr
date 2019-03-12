@@ -51,3 +51,21 @@ select(flights, -(year:day)) #this selects all the variables except from year to
 
 a <- select(flights, year:day, carrier, flight, ends_with("dest")) 
 b <- mutate(a, cool = carrier, yo = month+day) #mutate is to add new variables to the dataset using information from the dataset itself.
+
+
+# practising summarize and group_by
+
+View(flights) #when using View use capital V
+by_dest <- group_by(flights, dest)
+delay <- summarize(by_dest, count = n(), dist = mean(distance, na.rm = T), delay = mean(arr_delay, na.rm = T))
+
+filter(delay, count < 10)
+
+#performing the same using pipe operator
+delay2 <- flights %>% group_by(dest) %>%  summarize(count = n(), dist = mean(distance, na.rm = T), delay = mean(arr_delay, na.rm = T)) %>% filter(count <10)
+cool <- filter(delay, count > 20, dest != "HNL")
+#so when you use the pipe operator you don't have to repeat data all the time which is great!
+
+#using ggplot
+
+ggplot(cool, aes(dist, delay)) + geom_point(aes(count) , alpha = 1/3) + geom_smooth(se = F)
